@@ -4,4 +4,4 @@ if (item == null ) {
 } else {
   $(item).find("p#quantity").html("<%= @cart_item.quantity %>");
 }
-$("#total_price").html("<%= current_cart.total_price %>")
+$("#total_price").html("$" + "<%= current_cart.total_price %>")
