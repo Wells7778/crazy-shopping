@@ -1,1 +1,25 @@
-<h1>BackStage</h1>
+<h1>BackStage Products List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= image_tag product.image %></td>
+        <td><%= product.name %></td>
+        <td><%= truncate product.description, length: 10 %></td>
+        <td><%= product.price %></td>
+        <td>
+          show | edit | delete
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
