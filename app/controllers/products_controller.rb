@@ -16,8 +16,10 @@ class ProductsController < ApplicationController
   def subtract_from_cart
     @product = Product.find(params[:id])
     current_cart.subtract_cart_item(@product)
-
-    redirect_to root_path
+    @cart_item = current_cart.cart_items.find_by(product_id: @product)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def remove_from_cart
