@@ -1,0 +1,15 @@
+<div class="col-sm-12">
+  <div class="row" id="cart_item-<%= cart_item.product_id %>">
+    <div class="col-sm-4">
+      <%= image_tag cart_item.product.image, width: "100%" %>
+    </div>
+    <div class="col-sm-8">
+      <p><%= cart_item.product.name %></p>
+      <p>$ <%= cart_item.product.price %></p>
+      <%= link_to "-", subtract_from_cart_product_path(cart_item.product), method: :post %>
+      <p id="quantity"><%= cart_item.quantity %></p>
+      <%= link_to "+", add_to_cart_product_path(cart_item.product), remote: true, method: :post %>
+      <%= link_to "D", remove_from_cart_product_path(cart_item.product), method: :delete %>
+    </div>
+  </div>
+</div>

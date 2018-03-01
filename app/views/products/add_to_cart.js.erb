@@ -1,0 +1,6 @@
+var item = document.getElementById("cart_item-" + "<%= @cart_item.product_id %>");
+if (item == null ) {
+  $("#cart").append("<%= j( render partial: "shared/cart_item", locals: { cart_item: @cart_item }) %>");
+} else {
+  $(item).find("p#quantity").html("<%= @cart_item.quantity %>");
+}
