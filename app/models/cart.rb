@@ -29,4 +29,8 @@ class Cart < ApplicationRecord
       existing_item.destroy
     end
   end
+
+  def total_price
+    cart_items.reduce(0) { |sum, cart_item | sum + cart_item.product.price * cart_item.quantity }
+  end
 end

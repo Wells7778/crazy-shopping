@@ -24,7 +24,7 @@
     <h1>Cart</h1>
     <hr />
     <div class="row">
-      <% @cart_items.each do |cart_item| %>
+      <% current_cart.cart_items.each do |cart_item| %>
         <div class="col-sm-12">
           <div class="row">
             <div class="col-sm-4">
@@ -42,5 +42,9 @@
         </div>
       <% end %>
     </div>
+    <hr />
+    <h1 class="inline">SUBTOTAL</h1>
+    <p class="pull-right inline">$ <%= current_cart.total_price %></p>
+    <%= link_to "View Cart", cart_path %>
   </div>
 </div>
