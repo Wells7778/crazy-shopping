@@ -1,6 +1,6 @@
 <h1>Products List</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
@@ -12,9 +12,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag product.image %></td>
+        <td><%= image_tag product.image, width: "50px" %></td>
         <td><%= product.name %></td>
-        <td><%= truncate product.description, length: 10 %></td>
+        <td><%= truncate product.description, length: 80 %></td>
         <td><%= product.price %></td>
       </tr>
     <% end %>
