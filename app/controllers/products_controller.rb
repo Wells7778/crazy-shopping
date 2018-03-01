@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @cart_items = current_cart.cart_items.all
   end
 
   def add_to_cart

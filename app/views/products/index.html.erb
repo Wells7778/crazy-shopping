@@ -1,19 +1,46 @@
 <h1>Products List</h1>
 <div class="row">
-  <% @products.each_with_index do |product, index| %>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <%= image_tag product.image, width: "100%" %>
-        <div class="caption">
-          <h3><%= product.name %></h3>
-          <p><%= truncate product.description, length: 80 %></p>
-          <p>$ <%= product.price %></p>
-          <p><%= link_to "Add to Cart", add_to_cart_product_path(product), method: :post, class: "btn btn-primary" %></p>
+  <div class="col-sm-9">
+    <div class="row">
+      <% @products.each_with_index do |product, index| %>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <%= image_tag product.image, width: "100%" %>
+            <div class="caption">
+              <h3><%= product.name %></h3>
+              <p><%= truncate product.description, length: 80 %></p>
+              <p>$ <%= product.price %></p>
+              <p><%= link_to "Add to Cart", add_to_cart_product_path(product), method: :post, class: "btn btn-primary" %></p>
+            </div>
+          </div>
         </div>
-      </div>
+        <% if index % 4 == 3 %>
+          <div class="clearfix"></div>
+        <% end %>
+      <% end %>
     </div>
-    <% if index % 4 == 3 %>
-      <div class="clearfix"></div>
-    <% end %>
-  <% end %>
+  </div>
+  <div class="col-sm-3">
+    <h1>Cart</h1>
+    <hr />
+    <div class="row">
+      <% @cart_items.each do |cart_item| %>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag cart_item.product.image, width: "100%" %>
+            </div>
+            <div class="col-sm-8">
+              <p><%= cart_item.product.name %></p>
+              <p>$ <%= cart_item.product.price %></p>
+              <%= link_to "-", "#" %>
+              <p><%= cart_item.quantity %></p>
+              <%= link_to "+", "#" %>
+              <%= link_to "D", "#" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
