@@ -1,24 +1,24 @@
-<h1>BackStage Products List</h1>
-<table class="table table-striped">
+<h1><%= link_to "Add New Product", "" %></h1>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th>
       <th>Name</th>
-      <th>Description</th>
+      <th>Image</th>
       <th>Price</th>
-      <th>#</th>
+      <th>Option</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag product.image, size: "50px" %></td>
         <td><%= product.name %></td>
-        <td><%= truncate product.description, length: 10 %></td>
-        <td><%= product.price %></td>
+        <td><%= image_tag product.image, width: "120px" %></td>
+        <td>$ <%= product.price %></td>
         <td>
-          show | edit | delete
+          edit | detial
         </td>
+        <td>D</td>
       </tr>
     <% end %>
   </tbody>
