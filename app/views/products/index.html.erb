@@ -33,10 +33,10 @@
             <div class="col-sm-8">
               <p><%= cart_item.product.name %></p>
               <p>$ <%= cart_item.product.price %></p>
-              <%= link_to "-", "#" %>
+              <%= link_to "-", subtract_from_cart_product_path(cart_item.product), method: :post %>
               <p><%= cart_item.quantity %></p>
-              <%= link_to "+", "#" %>
-              <%= link_to "D", "#" %>
+              <%= link_to "+", add_to_cart_product_path(cart_item.product), method: :post %>
+              <%= link_to "D", remove_from_cart_product_path(cart_item.product), method: :delete %>
             </div>
           </div>
         </div>

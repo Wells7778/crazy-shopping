@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     member do
       post :add_to_cart
+      post :subtract_from_cart
+      delete :remove_from_cart
     end
   end
   resource :cart
