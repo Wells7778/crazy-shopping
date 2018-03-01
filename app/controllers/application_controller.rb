@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    if sessioin[:cart_id]
-      @cart = Cart.find_by(id: sessioin[:cart_id])
+    if session[:cart_id]
+      @cart = Cart.find_by(id: session[:cart_id])
     end
 
     @cart ||= Cart.create
 
-    sessioin[:cart_id] = @cart.id
+    session[:cart_id] = @cart.id
     @cart
   end
 end

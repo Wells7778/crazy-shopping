@@ -8,7 +8,7 @@
           <h3><%= product.name %></h3>
           <p><%= truncate product.description, length: 80 %></p>
           <p>$ <%= product.price %></p>
-          <p><a href="#" class="btn btn-primary" role="button">Add to cart</a></p>
+          <p><%= link_to "Add to Cart", add_to_cart_product_path(product), method: :post, class: "btn btn-primary" %></p>
         </div>
       </div>
     </div>
