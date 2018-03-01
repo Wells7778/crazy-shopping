@@ -1,22 +1,19 @@
 <h1>Products List</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.image, width: "50px" %></td>
-        <td><%= product.name %></td>
-        <td><%= truncate product.description, length: 80 %></td>
-        <td><%= product.price %></td>
-      </tr>
+<div class="row">
+  <% @products.each_with_index do |product, index| %>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <%= image_tag product.image, width: "100%" %>
+        <div class="caption">
+          <h3><%= product.name %></h3>
+          <p><%= truncate product.description, length: 80 %></p>
+          <p>$ <%= product.price %></p>
+          <p><a href="#" class="btn btn-primary" role="button">Add to cart</a></p>
+        </div>
+      </div>
+    </div>
+    <% if index % 4 == 3 %>
+      <div class="clearfix"></div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
