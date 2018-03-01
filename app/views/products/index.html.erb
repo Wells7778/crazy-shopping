@@ -29,8 +29,8 @@
       <% end %>
     </div>
     <hr />
-    <h1 class="inline">SUBTOTAL</h1>
-    <p class="pull-right inline">$ <%= current_cart.total_price %></p>
+    <h1 class="pull-left">SUBTOTAL</h1>
+    <p class="pull-right" id="total_price">$ <%= current_cart.total_price %></p>
     <%= link_to "View Cart", cart_path %>
   </div>
 </div>

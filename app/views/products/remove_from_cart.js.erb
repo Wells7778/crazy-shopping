@@ -1,2 +1,3 @@
 var item = document.getElementById("cart_item-" + "<%= @cart_item.product_id %>");
 $(item).remove();
+$("#total_price").html("<%= current_cart.total_price %>")
