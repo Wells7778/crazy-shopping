@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).per(24)
   end
 
   def add_to_cart
