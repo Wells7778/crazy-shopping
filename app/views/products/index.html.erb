@@ -1,26 +1,26 @@
 <h1>Products List</h1>
 <div class="row">
-  <div class="col-sm-9">
+  <div class="col-sm-12" id="products">
     <div class="row">
       <% @products.each_with_index do |product, index| %>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="thumbnail">
             <%= image_tag product.image, width: "100%" %>
             <div class="caption">
               <h3><%= product.name %></h3>
               <p><%= truncate product.description, length: 80 %></p>
               <p>$ <%= product.price %></p>
-              <p><%= link_to "Add to Cart", add_to_cart_product_path(product), method: :post, remote: true, class: "btn btn-primary" %></p>
+              <p><%= link_to "Add to Cart", add_to_cart_product_path(product), method: :post, remote: true, class: "btn btn-primary add_cart" %></p>
             </div>
           </div>
         </div>
-        <% if index % 4 == 3 %>
+        <% if index % 6 == 5 %>
           <div class="clearfix"></div>
         <% end %>
       <% end %>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-2 collapse" id="my-cart">
     <h1>Cart</h1>
     <hr />
     <div class="row" id="cart">
@@ -29,8 +29,26 @@
       <% end %>
     </div>
     <hr />
-    <h1 class="pull-left">SUBTOTAL</h1>
-    <h3 class="pull-right" id="total_price">$ <%= current_cart.total_price %></h3>
-    <div class="clearfix"><%= link_to "View Cart", cart_path %></div>
+    <div class="subtotal">
+      <h2 class="pull-left">SUBTOTAL</h2>
+      <h3 class="pull-right" id="total_price">$ <%= current_cart.total_price %></h3>
+      <div class="clearfix"></div>
+      <%= link_to "View Cart", cart_path, class: "btn btn-default pull-right" %>
+    </div>
   </div>
 </div>
+<script>
+  $(document).ready(function(){
+    $("#my-cart").on("hidden.bs.collapse", function(){
+      $("#products").attr("class", "col-sm-12");
+      $("#cart-collapse").html("Cart Open");
+    });
+    $("#my-cart").on("shown.bs.collapse", function(){
+      $("#products").attr("class", "col-sm-10");
+      $("#cart-collapse").html("Cart Close");
+    });
+    $(".add_cart").click(function () {
+      $("#my-cart").collapse('show');
+    });
+  });
+</script>
