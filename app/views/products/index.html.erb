@@ -19,6 +19,9 @@
         <% end %>
       <% end %>
     </div>
+    <div class="text-center">
+      <%= paginate @products %>
+    </div>
   </div>
   <div class="col-sm-2 collapse" id="my-cart">
     <h1>Cart</h1>
@@ -43,7 +46,7 @@
       $("#products").attr("class", "col-sm-12");
       $("#cart-collapse").html("Cart Open");
     });
-    $("#my-cart").on("shown.bs.collapse", function(){
+    $("#my-cart").on("show.bs.collapse", function(){
       $("#products").attr("class", "col-sm-10");
       $("#cart-collapse").html("Cart Close");
     });
