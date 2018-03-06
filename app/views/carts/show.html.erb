@@ -44,39 +44,25 @@
         <h3 class="panel-title">Shopping infomation</h3>
       </div>
       <div class="panel-body">
-        <form class="form">
+        <%= form_for @order do |f| %>
           <div class="form-group">
-            <label>Name</label>
-            <input type="email" class="form-control">
+            <%= f.label :name, "Name" %>
+            <%= f.text_field :name, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>Email address</label>
-            <input type="email" class="form-control">
+            <%= f.label :phone, "Phone" %>
+            <%= f.text_field :phone, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>Phone</label>
-            <input type="email" class="form-control">
+            <%= f.label :address, "Address" %>
+            <%= f.text_field :address, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>Address</label>
-            <input type="email" class="form-control">
+            <%= f.submit "Check Out", class: "btn btn-default" %>
           </div>
-        </form>
+        <% end %>
+
       </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Payment method</h3>
-      </div>
-      <div class="panel-body">
-        <form>
-          <input type="radio" name="payment_method" value="atm"> ATM<br/>
-          <input type="radio" name="payment_method" value="creditcard"> Credit Card<br>
-        </form>
-      </div>
-    </div>
-    <div class="pull-right">
-      <%= link_to "Checkout", "", class: "btn btn-default" %>
     </div>
   </div>
 </div>
