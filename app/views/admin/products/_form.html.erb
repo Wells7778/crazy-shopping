@@ -1,0 +1,33 @@
+<%= render partial: "navbar_pill" %>
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Add New Product</h1>
+    <% if product.errors %>
+      <ul class="errors">
+        <% product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_for [:admin, product] do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: "Product Name", class: "form-control" %>
+      </div>
+      <div class="form-froup">
+        <%= image_tag product.image, width: "100px" if product.image? %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+      <div class="form-froup">
+        <%= f.text_area :description, placeholder: "Add Product Description...", class: "form-control" %>
+      </div>
+      <div class="form-froup">
+        <%= f.number_field :price, placeholder: "Price" %>
+      </div>
+      <div class="form-froup">
+        <%= f.submit "Submit", class: "btn btn-default pull-right" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
