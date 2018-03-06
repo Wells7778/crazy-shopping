@@ -30,7 +30,7 @@
               <% end %>
               <li><%= link_to "Profile", "#" %></li>
               <li><%= link_to "Cart Open", "#my-cart", id: "cart-collapse" , data: { toggle: "collapse" }, aria: { expanded: "false", controls: "my-cart" } %></li>
-              <li><%= link_to "Order", "" %></li>
+              <li><%= link_to "Order", orders_path %></li>
               <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>

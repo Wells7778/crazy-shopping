@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Order # <%= order.sn %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-6">
+      <table class="table">
+        <tbody>
+          <% order_items.each do |item| %>
+            <tr>
+              <td><%= item.product.name %></td>
+              <td><%= item.quantity %></td>
+              <td>$ <%= item.price %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <th>Subtotal</th>
+            <th></th>
+            <th>$ <%= order.amount %></th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Shipping Information</h3>
+        </div>
+        <div class="panel-body">
+          <h3><%= order.name %></h3>
+          <h3><%= order.phone %></h3>
+          <h3><%= order.address %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h3>Payment Status:      <%= order.payment_status %></h3>
+      <h3>Shipping Status:      <%= order.shipping_status %></h3>
+      <div class="buttons">
+        <%= link_to "Credit", "", class: "btn btn-default" %>
+        <%= link_to "WebATM", "", class: "btn btn-default" %>
+        <%= link_to "ATM", "", class: "btn btn-default" %>
+        <%= link_to "Cancel", "", class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
