@@ -13,7 +13,9 @@ Rails.application.routes.draw do
       delete :remove_from_cart
     end
   end
+  resources :orders, only:[:index, :show, :create]
   resource :cart
+
 
   root "products#index"
 end
