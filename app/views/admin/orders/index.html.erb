@@ -20,7 +20,7 @@
             <td><%= order.shipping_status %></td>
             <td>
               <%= link_to "Edit", "" %>
-              <%= link_to "Detail", "" %>
+              <%= link_to "Detail", admin_order_path(order) %>
             </td>
           </tr>
         <% end %>
