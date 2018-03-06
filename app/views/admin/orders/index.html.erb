@@ -1,0 +1,30 @@
+<%= render partial: "admin/shared/navbar_pill" %>
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Price</th>
+          <th>Payment status</th>
+          <th>Shipping status</th>
+          <th>Order Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td>#<%= order.sn %></td>
+            <td><%= order.amount %></td>
+            <td><%= order.payment_status %></td>
+            <td><%= order.shipping_status %></td>
+            <td>
+              <%= link_to "Edit", "" %>
+              <%= link_to "Detail", "" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

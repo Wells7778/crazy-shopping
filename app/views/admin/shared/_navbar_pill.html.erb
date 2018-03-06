@@ -1,0 +1,8 @@
+<ul class="nav nav-pills">
+  <li role="presentation" class=<%= "active" if current_page?(admin_products_path) || current_page?(admin_root_path) %>>
+    <%= link_to "Product", admin_products_path %>
+  </li>
+  <li role="presentation" class=<%= "active" if current_page?(admin_orders_path) %>>
+    <%= link_to "Order", admin_orders_path %>
+  </li>
+</ul>
