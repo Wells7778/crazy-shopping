@@ -1,6 +1,6 @@
 <h1>Products List</h1>
 <div class="row">
-  <div class="col-sm-12" id="products">
+  <div class="col-sm-10" id="products">
     <div class="row">
       <% @products.each_with_index do |product, index| %>
         <div class="col-sm-2">
@@ -23,7 +23,7 @@
       <%= paginate @products %>
     </div>
   </div>
-  <div class="col-sm-2 collapse" id="my-cart">
+  <div class="col-sm-2 collapse in" id="my-cart">
     <h1>Cart</h1>
     <hr />
     <div class="row" id="cart">
