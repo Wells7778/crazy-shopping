@@ -1,25 +1,42 @@
-<h1><%= link_to "Add New Product", "" %></h1>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Option</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= image_tag product.image, width: "120px" %></td>
-        <td>$ <%= product.price %></td>
-        <td>
-          edit | detial
-        </td>
-        <td>D</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Product</a></li>
+  <li role="presentation"><a href="#">Order</a></li>
+</ul>
+<h1><%= link_to "Add New Product", new_admin_product_path %></h1>
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Option</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= image_tag product.image, width: "100px" %></td>
+            <td>$ <%= product.price %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_product_path(product) %>
+              <%= link_to "Detail", admin_product_path(product) %>
+            </td>
+            <td>
+              <%= link_to admin_product_path(product), method: :delete, data: { confirm: "Are You Sure? " } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= paginate @products %>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
