@@ -13,12 +13,19 @@ class ProductsController < ApplicationController
     end
   end
 
-  def subtract_from_cart
+  def adjust_item
     @product = Product.find(params[:id])
-    current_cart.subtract_cart_item(@product)
     @cart_item = current_cart.cart_items.find_by(product_id: @product)
     respond_to do |format|
-      format.js
+      if params[:type] == "add"
+        @cart_item.quantity += 1
+        @cart_item.save!
+        format.js
+      elsif params[:type] == "subtract"
+        @cart_item.quantity -= 1
+        @cart_item.save!
+        format.js
+      end
     end
   end
 

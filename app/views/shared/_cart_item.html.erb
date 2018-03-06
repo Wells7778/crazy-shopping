@@ -6,11 +6,11 @@
     <div class="col-sm-8">
       <p><%= cart_item.product.name %></p>
       <p>$ <%= cart_item.product.price %></p>
-      <%= link_to subtract_from_cart_product_path(cart_item.product), remote: true, method: :post do %>
+      <%= link_to adjust_item_product_path(cart_item.product, type: "subtract"), remote: true, method: :post do %>
         <span class="glyphicon glyphicon-minus"></span>
       <% end %>
       <h5 id="quantity"><%= cart_item.quantity %></h5>
-      <%= link_to add_to_cart_product_path(cart_item.product), remote: true, method: :post do %>
+      <%= link_to adjust_item_product_path(cart_item.product, type: "add"), remote: true, method: :post do %>
         <span class="glyphicon glyphicon-plus"></span>
       <% end %>
       <div class="clearfix"></div>

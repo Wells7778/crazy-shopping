@@ -13,16 +13,6 @@ class Cart < ApplicationRecord
     self.cart_items
   end
 
-  def subtract_cart_item(product)
-    existing_item = self.cart_items.find_by(product_id: product.id)
-    if existing_item && existing_item.quantity > 0
-      existing_item.quantity -= 1
-      existing_item.save!
-    end
-    if existing_item.quantity == 0
-      remove_cart_item(product)
-    end
-  end
   def remove_cart_item(product)
     existing_item = self.cart_items.find_by(product_id: product.id)
     if existing_item
